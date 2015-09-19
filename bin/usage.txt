@@ -1,0 +1,1 @@
+USAGE: recursive-deps path1 [, path2, path3, ...]
