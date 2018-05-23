@@ -14,6 +14,12 @@ test('follows relative requires', function(t) {
   });
 });
 
+test('follows es6 import syntax',function(t) {
+  return recursiveDeps(__dirname + '/fixtures/import.js').then(function(dependencies) {
+    t.deepEqual(dependencies, ['events', 'fs', 'path']);
+  });
+});
+
 test('requiring internal path in a package only considers the package',function(t) {
   return recursiveDeps(__dirname + '/fixtures/internal.js').then(function(dependencies) {
     t.deepEqual(dependencies, ['a']);
