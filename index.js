@@ -1,7 +1,6 @@
 var Promise = require('bluebird');
 var path = require('path');
 var fs = require('fs-promise');
-// var detective = require('detective');
 var konan = require('konan');
 var flatten = require('fj-flatten');
 
