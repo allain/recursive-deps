@@ -1,7 +1,8 @@
 var Promise = require('bluebird');
 var path = require('path');
 var fs = require('fs-promise');
-var detective = require('detective');
+// var detective = require('detective');
+var konan = require('konan');
 var flatten = require('fj-flatten');
 
 module.exports = function(paths) {
@@ -26,7 +27,7 @@ function extractDeps(paths, processedDeps) {
       if (!exists) return [];
 
       return fs.readFile(srcPath, 'utf-8').then(function(src) {
-        return detective(src).map(function (required) {
+        return konan(src).strings.map(function (required) {
           if (required === '..') {
             return path.resolve(path.dirname(srcPath), '../index.js');
           } else if (required.match(/^[\/.]/g)) {

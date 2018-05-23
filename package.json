@@ -32,6 +32,7 @@
     "bluebird": "^2.10.0",
     "detective": "^4.2.0",
     "fj-flatten": "^1.0.0",
-    "fs-promise": "^0.3.1"
+    "fs-promise": "^0.3.1",
+    "konan": "^1.2.1"
   }
 }
