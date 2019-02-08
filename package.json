@@ -26,12 +26,10 @@
   },
   "homepage": "https://github.com/allain/recursive-deps#readme",
   "dependencies": {
-    "a": "^1.0.1",
-    "b": "^2.0.1",
-    "blue-tape": "^0.1.10",
-    "bluebird": "^2.10.0",
     "fj-flatten": "^1.0.0",
-    "fs-promise": "^0.3.1",
     "konan": "^1.2.1"
+  },
+  "devDependencies": {
+    "blue-tape": "^1.0.0"
   }
 }

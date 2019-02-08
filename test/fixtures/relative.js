@@ -1,1 +1,1 @@
-var relative = require('./simple.js');
+const relative = require('./simple.js')

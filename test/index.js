@@ -1,39 +1,33 @@
-var test = require('blue-tape');
+const test = require('blue-tape')
 
-var recursiveDeps = require('..');
+const recursiveDeps = require('..')
 
-test('works in simple case', function(t) {
-  return recursiveDeps(__dirname + '/fixtures/simple.js').then(function(dependencies) {
-    t.deepEqual(dependencies, ['events', 'fs']);
-  });
-});
+test('works in simple case', t =>
+  recursiveDeps(__dirname + '/fixtures/simple.js').then(dependencies =>
+    t.deepEqual(dependencies, ['events', 'fs'])
+  ))
 
-test('follows relative requires', function(t) {
-  return recursiveDeps(__dirname + '/fixtures/relative.js').then(function(dependencies) {
-    t.deepEqual(dependencies, ['events', 'fs']);
-  });
-});
+test('follows relative requires', t =>
+  recursiveDeps(__dirname + '/fixtures/relative.js').then(dependencies =>
+    t.deepEqual(dependencies, ['events', 'fs'])
+  ))
 
-test('follows es6 import syntax',function(t) {
-  return recursiveDeps(__dirname + '/fixtures/import.js').then(function(dependencies) {
-    t.deepEqual(dependencies, ['events', 'fs', 'path']);
-  });
-});
+test('follows es6 import syntax', t =>
+  recursiveDeps(__dirname + '/fixtures/import.js').then(dependencies =>
+    t.deepEqual(dependencies, ['events', 'fs', 'path'])
+  ))
 
-test('requiring internal path in a package only considers the package',function(t) {
-  return recursiveDeps(__dirname + '/fixtures/internal.js').then(function(dependencies) {
-    t.deepEqual(dependencies, ['a']);
-  });
-});
+test('requiring internal path in a package only considers the package', t =>
+  recursiveDeps(__dirname + '/fixtures/internal.js').then(dependencies =>
+    t.deepEqual(dependencies, ['a'])
+  ))
 
-test('missing path yields empty',function(t) {
-  return recursiveDeps(__dirname + '/fixtures/missing.js').then(function(dependencies) {
-    t.deepEqual(dependencies, []);
-  });
-});
+test('missing path yields empty', t =>
+  recursiveDeps(__dirname + '/fixtures/missing.js').then(dependencies =>
+    t.deepEqual(dependencies, [])
+  ))
 
-test('deps are returned in sorted order',function(t) {
-  return recursiveDeps(__dirname + '/fixtures/order.js').then(function(dependencies) {
-    t.deepEqual(dependencies, ['a', 'b']);
-  });
-});
+test('deps are returned in sorted order', t =>
+  recursiveDeps(__dirname + '/fixtures/order.js').then(dependencies =>
+    t.deepEqual(dependencies, ['a', 'b'])
+  ))

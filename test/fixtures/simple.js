@@ -1,2 +1,2 @@
-var fs = require('fs');
-var events = require('events');
+const fs = require('fs')
+const events = require('events')
